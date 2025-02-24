@@ -13,10 +13,6 @@
     "name": "NativeVoiceTurboSpec",
     "type": "modules",
     "jsSrcsDir": "specs",
-    "outputDir": {
-      "ios": "ios/generated",
-      "android": "android/generated"
-    },
     "android": {
       "javaPackageName": "com.grapecity.leyserkids.voice"
     }

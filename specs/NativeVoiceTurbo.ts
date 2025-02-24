@@ -12,11 +12,6 @@ type SpeechType = {
 };
 
 export interface Spec extends TurboModule {
-  /**
-   * Gets list of SpeechRecognitionServices used.
-   * @platform android
-   */
-  getSpeechRecognitionServices(): Promise<string[]>;
   destroySpeech: (callback: Callback) => void;
   startSpeech: (
     locale: string,
@@ -25,17 +20,11 @@ export interface Spec extends TurboModule {
   ) => void;
   stopSpeech: (callback: Callback) => void;
   cancelSpeech: (callback: Callback) => void;
-  isRecognizing: (callback: (Recognizing: boolean) => void) => void;
   isSpeechAvailable: (
     callback: (isAvailable: boolean, error: string) => void
   ) => void;
-  onSpeechStart?: (e: SpeechStartEvent) => void;
-  onSpeechRecognized?: (e: SpeechRecognizedEvent) => void;
-  onSpeechEnd?: (e: SpeechEndEvent) => void;
-  onSpeechError?: (e: SpeechErrorEvent) => void;
-  onSpeechResults?: (e: SpeechResultsEvent) => void;
-  onSpeechPartialResults?: (e: SpeechResultsEvent) => void;
-  onSpeechVolumeChanged?: (e: SpeechVolumeChangeEvent) => void;
+  getSpeechRecognitionServices(): Promise<string[]>;
+  isRecognizing: (callback: (Recognizing: boolean) => void) => void;
 }
 
 export type SpeechStartEvent = {

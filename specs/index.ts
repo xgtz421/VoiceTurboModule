@@ -4,15 +4,8 @@ import {
   type EventSubscription,
 } from 'react-native';
 import invariant from 'invariant';
-import {
-  type SpeechRecognizedEvent,
-  type SpeechErrorEvent,
-  type SpeechResultsEvent,
-  type SpeechStartEvent,
-  type SpeechEndEvent,
-  type SpeechVolumeChangeEvent,
-} from './NativeVoiceAndroid';
-import {SpeechEvents, TranscriptionEvents} from './VoiceModuleTypes';
+
+import {SpeechEndEvent, SpeechErrorEvent, SpeechEvents, SpeechRecognizedEvent, SpeechResultsEvent, SpeechStartEvent, SpeechVolumeChangeEvent, TranscriptionEvents} from './VoiceModuleTypes';
 
 const LINKING_ERROR =
   "The package '@react-native-voice/voice' doesn't seem to be linked. Make sure: \n\n" +
@@ -20,10 +13,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const VoiceNativeModule =
-  Platform.OS === 'android'
-    ? require('./NativeVoiceAndroid').default
-    : require('./NativeVoiceIOS').default;
+const VoiceNativeModule = require('./NativeVoiceTurbo').default;
 
 const Voice = VoiceNativeModule
   ? VoiceNativeModule
