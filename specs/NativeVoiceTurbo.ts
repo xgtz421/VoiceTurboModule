@@ -27,32 +27,4 @@ export interface Spec extends TurboModule {
   isRecognizing: (callback: (Recognizing: boolean) => void) => void;
 }
 
-export type SpeechStartEvent = {
-  error?: boolean;
-};
-
-export type SpeechRecognizedEvent = {
-  isFinal?: boolean;
-};
-
-export type SpeechResultsEvent = {
-  value?: string[];
-};
-
-export type SpeechErrorEvent = {
-  error?: {
-    code?: string;
-    message?: string;
-  };
-};
-
-export type SpeechEndEvent = {
-  error?: boolean;
-};
-
-export type SpeechVolumeChangeEvent = {
-  value?: number;
-};
-
-
 export default TurboModuleRegistry.getEnforcing<Spec>('VoiceTurbo');
